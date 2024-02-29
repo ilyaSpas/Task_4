@@ -19,7 +19,7 @@ public class BlockingQueue {
             wait();
         }
         blockingQueue.add(element);
-        notify();
+        notifyAll();
         return element;
     }
 
@@ -28,7 +28,7 @@ public class BlockingQueue {
             wait();
         }
         blockingQueue.poll();
-        notify();
+        notifyAll();
     }
 
     public synchronized int size() {

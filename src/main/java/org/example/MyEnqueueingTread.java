@@ -13,7 +13,7 @@ public class MyEnqueueingTread implements Runnable{
         for (int i = 0; i < 15; i++) {
             try {
                 Thread.sleep(700);
-                System.out.println("Enqueued new task" + blockingQueue.enqueue(new Task("Task " + i)));
+                System.out.println("Enqueued new " + blockingQueue.enqueue(new Task("Task " + i)));
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
