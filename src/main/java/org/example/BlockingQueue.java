@@ -23,11 +23,12 @@ public class BlockingQueue {
         return element;
     }
 
-    public synchronized Object dequeue() throws InterruptedException {
+    public synchronized void dequeue() throws InterruptedException {
         while (blockingQueue.isEmpty()) {
             wait();
         }
-        return blockingQueue.poll();
+        blockingQueue.poll();
+        notify();
     }
 
     public synchronized int size() {
