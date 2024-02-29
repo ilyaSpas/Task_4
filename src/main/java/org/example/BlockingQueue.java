@@ -18,19 +18,14 @@ public class BlockingQueue {
         while (blockingQueue.size() == capacity) {
             wait();
         }
-        if (blockingQueue.isEmpty()) {
-            notify();
-        }
         blockingQueue.add(element);
+        notify();
         return element;
     }
 
     public synchronized Object dequeue() throws InterruptedException {
         while (blockingQueue.isEmpty()) {
             wait();
-        }
-        if (blockingQueue.size() == capacity) {
-            notify();
         }
         return blockingQueue.poll();
     }
